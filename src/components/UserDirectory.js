@@ -11,6 +11,8 @@ import {
   TextField
 } from '@material-ui/core';
 
+import User from './User';
+
 class UserDirectory extends Component {
   constructor(props) {
     super(props);
@@ -57,23 +59,17 @@ class UserDirectory extends Component {
           <Typography variant='subtitle1'>{results} Results</Typography>
         </div>
         <List>
-          {filteredUsers.map((user, index) => (
-            <ListItem key={index} divider>
-              <ListItemAvatar>
-                <Avatar src={user.picture.thumbnail} />
-              </ListItemAvatar>
-              <ListItemText
-                primary={<Fragment>{user.name.first} {user.name.last}</Fragment>}
-                secondaryTypographyProps={{ component: 'div' }}
-                secondary={(
-                  <Fragment>
-                    <Typography>{user.location.street}</Typography>
-                    <Typography>{user.location.city}, {user.location.state}</Typography>
-                  </Fragment>
-                )}
-              />
-            </ListItem>
-          ))}
+          {filteredUsers.map((user, index) =>
+            <User
+              key={index}
+              imageUrl={user.picture.thumbnail}
+              firstName={user.name.first}
+              lastName={user.name.last}
+              street={user.location.street}
+              city={user.location.city}
+              state={user.location.state}
+            />
+          )}
         </List>
       </div>
     );
