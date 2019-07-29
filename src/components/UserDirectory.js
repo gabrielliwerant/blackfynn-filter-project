@@ -7,7 +7,8 @@ import {
   ListItemText,
   ListItemAvatar,
   Avatar,
-  Typography
+  Typography,
+  TextField
 } from '@material-ui/core';
 
 class UserDirectory extends Component {
@@ -48,7 +49,11 @@ class UserDirectory extends Component {
       <div>
         <h2>User Directory</h2>
         <div>
-          <input placeholder="Enter name to filter results" onChange={this.onChange} />
+          <TextField
+            variant='outlined'
+            placeholder='Enter name to filter results'
+            onChange={this.onChange}
+          />
           <div>{results} Results</div>
         </div>
         <List>
