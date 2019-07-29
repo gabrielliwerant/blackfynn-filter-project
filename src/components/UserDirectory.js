@@ -14,6 +14,9 @@ import { withStyles } from '@material-ui/styles';
 import User from './User';
 
 const styles = {
+  root: {
+    paddingTop: '40px'
+  },
   searchFilterRoot: {
     display: 'flex',
     marginBottom: '20px'
@@ -66,7 +69,7 @@ class UserDirectory extends Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className={classes.root}>
         <Typography variant='h4' gutterBottom>User Directory</Typography>
         <div className={classes.searchFilterRoot}>
           <TextField
