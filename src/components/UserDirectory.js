@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import axios from 'axios';
 
 class UserDirectory extends Component {
@@ -7,20 +6,25 @@ class UserDirectory extends Component {
     super(props);
 
     this.state = {
-      users: []
+      users: [],
+      results: 0
     };
 
     axios.get('https://randomuser.me/api/?results=100')
-      .then(res => this.setState({ users: res.data.results }))
+      .then(res => this.setState({ users: res.data.results, results: res.data.info.results }))
       .catch(err => console.log(err));
   }
 
   render() {
-    const { users } = this.state;
+    const { users, results } = this.state;
 
     return (
       <div>
         <h2>User Directory</h2>
+        <div>
+          <input placeholder="Enter name to filter results" />
+          <div>{results} Results</div>
+        </div>
         <ul>
           {users.map((user, index) => (
             <li key={ index }>
