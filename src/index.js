@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import { Typography } from '@material-ui/core';
+
 import UserDirectory from './components/UserDirectory';
 
 const App = () => {
   return (
     <div>
-      <h1>Blackfynn Filter Project</h1>
+      <Typography variant='h3' gutterBottom>Blackfynn Filter Project</Typography>
       <UserDirectory />
     </div>
   );

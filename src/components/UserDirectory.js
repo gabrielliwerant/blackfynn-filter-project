@@ -47,14 +47,14 @@ class UserDirectory extends Component {
 
     return (
       <div>
-        <h2>User Directory</h2>
+        <Typography variant='h4' gutterBottom>User Directory</Typography>
         <div>
           <TextField
             variant='outlined'
             placeholder='Enter name to filter results'
             onChange={this.onChange}
           />
-          <div>{results} Results</div>
+          <Typography variant='subtitle1'>{results} Results</Typography>
         </div>
         <List>
           {filteredUsers.map((user, index) => (
