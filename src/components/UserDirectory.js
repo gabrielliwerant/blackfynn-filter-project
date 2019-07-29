@@ -19,7 +19,7 @@ const styles = {
     marginBottom: '20px'
   },
   textField: {
-    width: '75%',
+    width: '66%',
     marginRight: '10px'
   },
   input: {
