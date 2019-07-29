@@ -1,5 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import axios from 'axios';
+
+import {
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+  Typography
+} from '@material-ui/core';
 
 class UserDirectory extends Component {
   constructor(props) {
@@ -42,24 +51,25 @@ class UserDirectory extends Component {
           <input placeholder="Enter name to filter results" onChange={this.onChange} />
           <div>{results} Results</div>
         </div>
-        <ul>
+        <List>
           {filteredUsers.map((user, index) => (
-            <li key={index}>
-              <div>
-                <img src={user.picture.thumbnail} />
-              </div>
-              <div>
-                <div>
-                  {user.name.first} {user.name.last}
-                </div>
-                <div>
-                  <p>{user.location.street}</p>
-                  <p>{user.location.city}, {user.location.state}</p>
-                </div>
-              </div>
-            </li>
+            <ListItem key={index} divider>
+              <ListItemAvatar>
+                <Avatar src={user.picture.thumbnail} />
+              </ListItemAvatar>
+              <ListItemText
+                primary={<Fragment>{user.name.first} {user.name.last}</Fragment>}
+                secondaryTypographyProps={{ component: 'div' }}
+                secondary={(
+                  <Fragment>
+                    <Typography>{user.location.street}</Typography>
+                    <Typography>{user.location.city}, {user.location.state}</Typography>
+                  </Fragment>
+                )}
+              />
+            </ListItem>
           ))}
-        </ul>
+        </List>
       </div>
     );
   }
