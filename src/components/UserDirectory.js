@@ -27,17 +27,17 @@ class UserDirectory extends Component {
         </div>
         <ul>
           {users.map((user, index) => (
-            <li key={ index }>
+            <li key={index}>
               <div>
-                <img src={ user.picture.thumbnail } />
+                <img src={user.picture.thumbnail} />
               </div>
               <div>
                 <div>
-                  { user.name.first } { user.name.last }
+                  {user.name.first} {user.name.last}
                 </div>
                 <div>
-                  <p>{ user.location.street }</p>
-                  <p>{ user.location.city }, { user.location.state }</p>
+                  <p>{user.location.street}</p>
+                  <p>{user.location.city}, {user.location.state}</p>
                 </div>
               </div>
             </li>
