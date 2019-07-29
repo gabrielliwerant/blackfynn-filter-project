@@ -18,8 +18,7 @@ const styles = {
     paddingTop: '40px'
   },
   searchFilterRoot: {
-    display: 'flex',
-    marginBottom: '20px'
+    display: 'flex'
   },
   textField: {
     width: '66%',

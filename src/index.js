@@ -10,7 +10,7 @@ const theme = createMuiTheme({
   overrides: {
     MuiTypography: {
       gutterBottom: {
-        marginBottom: '0.65em'
+        marginBottom: '0.75em'
       }
     }
   }
