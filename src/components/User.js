@@ -8,16 +8,36 @@ import {
   Avatar,
   Typography
 } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
+
+const styles = {
+  root: {
+    paddingTop: '0',
+    paddingBottom: '0'
+  },
+  gutters: {
+    paddingLeft: '20px',
+    paddingRight: '20px'
+  },
+  multiline: {
+    marginTop: '20px',
+    marginRight: '20px',
+    marginBottom: '20px',
+    marginLeft: '20px'
+  }
+};
 
 const User = props => {
-  const { imageUrl, firstName, lastName, street, city, state } = props;
+  const { imageUrl, firstName, lastName, street, city, state, classes } = props;
 
   return (
-    <ListItem divider>
+    <ListItem divider classes={{ root: classes.root, gutters: classes.gutters }}>
       <ListItemAvatar>
         <Avatar src={imageUrl} />
       </ListItemAvatar>
       <ListItemText
+        classes={{ multiline: classes.multiline }}
+        primaryTypographyProps={{ component: 'div' }}
         primary={<Fragment>{firstName} {lastName}</Fragment>}
         secondaryTypographyProps={{ component: 'div' }}
         secondary={(
@@ -31,4 +51,4 @@ const User = props => {
   );
 };
 
-export default User;
+export default withStyles(styles)(User);

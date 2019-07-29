@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import axios from 'axios';
-
 import {
   List,
   ListItem,
@@ -10,8 +9,26 @@ import {
   Typography,
   TextField
 } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 
 import User from './User';
+
+const styles = {
+  searchFilterRoot: {
+    display: 'flex',
+    marginBottom: '20px'
+  },
+  textField: {
+    width: '75%',
+    marginRight: '10px'
+  },
+  input: {
+    padding: '10px'
+  },
+  results: {
+    marginTop: '7px'
+  }
+};
 
 class UserDirectory extends Component {
   constructor(props) {
@@ -46,17 +63,20 @@ class UserDirectory extends Component {
 
   render() {
     const { filteredUsers, results } = this.state;
+    const { classes } = this.props;
 
     return (
       <div>
         <Typography variant='h4' gutterBottom>User Directory</Typography>
-        <div>
+        <div className={classes.searchFilterRoot}>
           <TextField
+            className={classes.textField}
+            InputProps={{ classes: { input: classes.input } }}
             variant='outlined'
             placeholder='Enter name to filter results'
             onChange={this.onChange}
           />
-          <Typography variant='subtitle1'>{results} Results</Typography>
+          <Typography variant='subtitle1' className={classes.results}>{results} Results</Typography>
         </div>
         <List>
           {filteredUsers.map((user, index) =>
@@ -76,4 +96,4 @@ class UserDirectory extends Component {
   }
 };
 
-export default UserDirectory;
+export default withStyles(styles)(UserDirectory);
