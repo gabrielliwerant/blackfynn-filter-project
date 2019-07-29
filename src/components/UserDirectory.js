@@ -1,3 +1,9 @@
+/**
+ * UserDirectory
+ *
+ * Component responsible for the primary page, including filtering functionality
+ */
+
 import React, { Component, Fragment } from "react";
 import axios from 'axios';
 import {
@@ -57,6 +63,7 @@ class UserDirectory extends Component {
     const { value } = e.target;
     const { users } = this.state;
 
+    // Find matching users based on first or last name, and display the original list if we have no matches
     const filteredUsers = users.filter(user => user.name.first.includes(value) || user.name.last.includes(value));
     const newUserList = filteredUsers.length ? filteredUsers : users;
 

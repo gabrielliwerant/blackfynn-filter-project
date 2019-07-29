@@ -1,3 +1,11 @@
+/**
+ * index
+ *
+ * Main entry point for application
+ *
+ * Only base configs, setup, and components should be loaded here.
+ */
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { createMuiTheme } from '@material-ui/core/styles';

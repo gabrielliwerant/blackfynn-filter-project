@@ -1,3 +1,9 @@
+/**
+ * User
+ *
+ * The re-usable component for displaying user information
+ */
+
 import React, { Fragment } from "react";
 
 import {

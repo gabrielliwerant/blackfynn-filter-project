@@ -1,3 +1,9 @@
+/**
+ * MyAppBar
+ *
+ * The primary application app bar
+ */
+
 import React from "react";
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
