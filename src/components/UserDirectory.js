@@ -50,13 +50,14 @@ class UserDirectory extends Component {
       results: 0
     };
 
+    // TODO: Add better visual error for users
     axios.get('https://randomuser.me/api/?results=100')
       .then(res => this.setState({
         users: res.data.results,
         filteredUsers: res.data.results,
         results: res.data.info.results
       }))
-      .catch(err => console.log(err));
+      .catch(err => window.alert(err));
   }
 
   onChange(e) {
